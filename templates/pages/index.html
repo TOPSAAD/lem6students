@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        
+    </head>
+    {% extends 'base.html' %}
+{% load static %}
+#ec0108
+#1c6a07
+    <body style="cursor: none;">
+       {% block content %}
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var overlay = document.querySelector(".overlay");
+          var logoContainer = document.querySelector(".logo-container");
+          
+          setTimeout(function() {
+            overlay.classList.add("fade-out"); // start fade out
+            setTimeout(function() {
+              overlay.style.display = "none"; // hide overlay after fade out
+            }, 1500  ); // Adjust the time (in milliseconds) to match transition duration
+          }, 1500); // Adjust the time (in milliseconds) as needed for the logo to appear
+      
+          setTimeout(function() {
+            logoContainer.classList.add("show"); // fade in logo
+          }, 300); // Adjust the time (in milliseconds) for the delay before fading in
+        });
+      </script>
+       <style>
+            .btn-light:hover{
+                background-color: grey;
+                color: white;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black; /* opaque grey background */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999; /* ensure it's on top */
+                opacity: 1; /* initially opaque */
+                transition: opacity 3s ease-in-out; /* for fade in/out effect */
+              }
+            
+              .overlay.fade-out {
+                opacity: 0; /* fade out effect */
+                display:none;
+              }
+            
+              .logo-container {
+                width: 80%;
+                
+                animation : zoom-out 3s;
+              }
+              @keyframes zoom-out {
+                from{
+                    width:80%;
+                    height:80%;
+                }
+                to{
+                    width:20%;
+                    height:20%;
+                    display:none;
+                }
+            }
+         </style>
+
+            <div class="overlay bg-light">
+                <div class="logo-container">
+                  <img src="{% static 'images/back.png' %}" alt="Logo" class="img-fluid">
+                </div>
+              </div>
+       <section id="show" class="bg-light py-3">
+            <div class="container">
+                
+                <div id="carouselShow" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button class="active" type="button" data-bs-target="#carouselShow" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselShow" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselShow" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        {% comment %} <div class="carousel-item active">
+                            <img src="" class="d-block w-100" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="" class="d-block w-100" alt="">
+                        </div> {% endcomment %}
+                        <div class="carousel-item active">
+                            <img src="{% static 'images/back.png' %}" class="d-block w-100" alt="">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselShow" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselShow" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+       </section>
+       <section id="hero" class="bg-dark text-light text-sm-start text-center py-5 my-3">
+        <div class="container">
+            <h4 class="text-center mb-3 text-light fw-bold"> À PROPOS DE NOUS </h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        
+                        <p class="lead p-3"><span class="text-success">LEM6 </span><span class="text-danger">STUDENTS</span> est un espace numérique dynamique conçu pour faciliter l'échange et le partage de connaissances au sein de notre communauté éducative. Notre site web offre aux étudiants une plateforme conviviale où ils peuvent télécharger, stocker et présenter leurs travaux académiques en toute simplicité.</p>
+                        
+                    </div>
+                    <div class="col-md-4" style="overflow-x:auto;">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13300.502565015344!2d-7.6709708!3d33.5501118!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62d4a8d937733%3A0x96b8e5e183f06d26!2sLyc%C3%A9e%20d&#39;excellence%20mohammed%20VI_%20Classes%20Pr%C3%A9paratoires%20aux%20Grandes%20Ecoles%20(CPGE)!5e0!3m2!1sfr!2sma!4v1712437792503!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a href="https://fmovies-online.net"></a><br><style>.mapouter{position:relative;text-align:right;height:230px;width:520px;}</style><a href="https://www.embedgooglemap.net">show google maps on website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:230px;width:520px;}</style></div></div>
+                
+                    </div>
+            </div>
+                </div>
+        </div>
+    </section>
+        <section>
+            {% comment %} <p>
+                Bienvenue dans l'Archive des Documents de LEM6 !
+
+En tant qu'étudiants, nous nous retrouvons souvent submergés par une multitude d'assignments, de projets et de matériaux d'étude. Garder une trace de tout cela peut être écrasant, et parfois des documents importants semblent disparaître dans la nature. C'est pourquoi nous, les étudiants de [Nom de l'École], avons créé cette Archive des Documents - un hub centralisé où vous pouvez facilement accéder à une large gamme de ressources éducatives.
+
+Que vous recherchiez des notes de cours, des examens passés, des guides d'étude ou des documents de référence, notre archive a ce qu'il vous faut. Notre équipe dévouée d'étudiants a méticuleusement organisé et classé des documents de différentes matières et cours, rendant ainsi simple pour vous de trouver ce dont vous avez besoin, quand vous en avez besoin.
+
+Mais cette archive est plus qu'un simple dépôt de fichiers. C'est une plateforme collaborative où les étudiants peuvent partager leurs connaissances et soutenir le parcours d'apprentissage des autres. Vous trouverez non seulement des documents, mais aussi des discussions, des conseils et des stratégies d'étude contribués par d'autres étudiants qui ont emprunté le même chemin.
+
+À l'Archive des Documents de [Nom de l'École], notre mission est de donner aux étudiants les outils dont ils ont besoin pour réussir académiquement. Que vous vous prépariez pour un prochain examen, que vous travailliez sur un projet de recherche ou que vous cherchiez simplement à élargir vos connaissances, nous croyons que l'accès à des ressources éducatives de qualité devrait être facilement disponible pour tous.
+
+Alors n'hésitez pas, explorez notre archive et déverrouillez le trésor de connaissances qui vous attend. Et n'oubliez pas, en bénéficiant de cette ressource, envisagez de redonner en contribuant vos propres documents et idées, afin que les générations futures d'étudiants puissent continuer à s'épanouir.
+
+Bienvenue à bord et bonne étude !
+            </p> {% endcomment %}
+        </section>
+        <!-- <section id="faq" class="py-5 bg-dark">
+            <div class="container">
+                
+                <div class="accordion accordion-flush shadow" id="bt-faq">
+                    <div class="accordion-item">
+                        <h5 class="accordion-header" id="fq-1">
+                            <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#answer-1">
+                                NUTRITION SPORTIVE
+                            </button>
+                        </h5>
+                        <div class="accordion-collapse collapse p-4" id="answer-1" data-bs-parent="#bt-faq">
+                            <ul class="list-group">
+                                <a href="/products#gainer" class="text-decoration-none"><li class="list-group-item link-primary">GAINERS</li></a>
+                                <a href="/products#proteine" class="text-decoration-none"><li class="list-group-item link-primary">PROTEINES</li></a>
+                                <a href="/products#acidamineetbcaa" class="text-decoration-none"><li class="list-group-item link-primary">ACID AMINÉ & BCAA</li></a>
+                                <a href="/products#preworkoutetbooster" class="text-decoration-none"><li class="list-group-item link-primary">PRE-WORKOUT & BOOSTER</li></a>
+                                <a href="/products#creatine" class="text-decoration-none"><li class="list-group-item link-primary">CREATINE</li></a>
+                                <a href="/products#omega3etfishoil" class="text-decoration-none"><li class="list-group-item link-primary">OMEGA3 & FISH OIL</li></a>
+                                <a href="/products#vitaminesetmineraux" class="text-decoration-none"><li class="list-group-item link-primary">VITAMINES & MINÉRAUX</li></a>
+                                <a href="/products#bruluresdegraisse" class="text-decoration-none"><li class="list-group-item link-primary">BRÛLURES DE GRAISSE</li></a>
+                                <a href="/products#0calorie" class="text-decoration-none"><li class="list-group-item link-primary">0 CALORIE</li></a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h5 class="accordion-header" id="fq-2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#answer-2">
+                                ACCESSOIRES - VÊTEMENTS
+                            </button>
+                        </h5>
+                        <div class="accordion-collapse collapse p-4" id="answer-2" data-bs-parent="#bt-faq">
+                            <ul class="list-group">
+                                <a href="" class="text-decoration-none">
+                                    <li class="list-group-item link-primary">HOMMES</li>
+                                </a>
+                                <a href="" class="text-decoration-none">
+                                    <li class="list-group-item link-primary">FEMMES</li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section> -->
+       <section id="new" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center rounded bg-white">
+                    <h4 class="text-center mb-3 text-dark fw-bold py-3"> NOUVEAUTÉS </h4>
+                </div>
+                
+                <div class="row text-center">
+                    
+                    {% for c in cours %}
+            
+                
+                    <div class="col-lg-3 col-md-6 col-sm-9">
+                        <div style="overflow: hidden;" class="card bg-white text-light mb-3 shadow">
+                            <div class="h1 mt-3">
+                                
+                                <a href="#" class="card-l text-decoration-none">
+                                    
+                                    <img src="{{ c.image1.url }}" alt="" class="card-img img-fluid">
+                                    
+                                </a>
+                                <div class="card-body">
+                                    
+                                    <a href="#" class="text-decoration-none"><h6 class="card-text-body text-nowrap fw-bold" style="overflow:hidden;">{{c.name}}</h6></a>
+                                    <a href="{% url 'cours_details' c.id 'cours' %}" style="border-radius: 3em;" class="btn btn-success text-light fw-bold">CONSULTER</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                
+                
+            {% endfor %}
+                    
+                    
+                </div>
+                <div class="text-center bg-light rounded">
+                    <a href="{% url 'pages' 'mpsi' 'math' 'cours' %}" class="btn btn-success link-light fw-bold py-2 px-5 my-4 border rounded shadow">VOIR PLUS</a>
+                </div>
+                
+            </div>
+       </section>
+       
+       {% comment %} <section id="sevices" class="py-5 bg-light">
+        <div class="container">
+            
+            <div class="row text-center">
+                <div class="col-md col-sm-12">
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="h1 mt-3">
+                            <i class="bi bi-cash-coin"></i>
+                         </div>
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-info">Payez à La Livraison</h4>
+                            <div class="card-text py-3">Vous n'avez pas de carte de crédit ou ne souhaitez pas payer en ligne ? Ne vous inquiétez pas, le paiement à la livraison est disponible partout au Maroc. Vous ne devez payer qu'après réception de votre commande.</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="h1 mt-3">
+                            <i class="bi bi-box-seam-fill"></i>
+                         </div>
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-info">Retour Facile</h4>
+                            <div class="card-text py-3">Profitez de l'avantage d'un retour simple et sans tracas chez TopsNutrition. Si vous n'êtes pas entièrement satisfait de votre achat, vous pouvez nous le retourner facilement dans un délai défini. Nous vous guidons tout au long du processus.</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card bg-dark text-light mb-3">
+                        <div class="h1 mt-3">
+                            <i class="bi bi-chat-dots"></i>
+                         </div>
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-info">Support Client</h4>
+                            <div class="card-text py-3">Notre équipe dévouée est disponible pour répondre à toutes vos questions et résoudre rapidement vos problèmes. Nous valorisons votre satisfaction et sommes là pour vous offrir une expérience d'achat en ligne agréable.</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="hero" class="bg-dark text-light text-sm-start text-center py-5 my-3">
+        <div class="container">
+            <h4 class="text-center mb-3 text-light fw-bold"> À PROPOS DE NOUS </h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        
+                        <p class="lead p-3">TOPS <span class="text-info">Nutrition</span> est une boutique en ligne de musculation et de fitness. elle vend des suppléments, des équipements, des vêtements, des matériaux et des accessoires des marques les plus fiables au meilleur prix.</p>
+                        <a href="/products" class="btn btn-info">Voir les produits</a>
+                    </div>
+                    <div class="col-md-4" style="overflow-x:auto;">
+                        <div class="mapouter"><div class="gmap_canvas"><iframe width="520" height="230" id="gmap_canvas" src="https://maps.google.com/maps?q=Rabat&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net"></a><br><style>.mapouter{position:relative;text-align:right;height:230px;width:520px;}</style><a href="https://www.embedgooglemap.net">show google maps on website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:230px;width:520px;}</style></div></div>
+                
+                    </div>
+            </div>
+                </div>
+        </div>
+    </section> {% endcomment %}
+    
+
+
+    {% endblock content %} 
+    </body>
+</html>
+
+
+
+
+
+
+
+ 
